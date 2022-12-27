@@ -1,0 +1,44 @@
+import dingle.foo as baz;
+import slap.me.sideways;
+
+type lart ...;
+
+type bar ...;
+
+type qux ...;
+
+type quux ...;
+
+type map qux -> bar;
+
+type wang lart;
+
+type foo bar -> (bar -> qux) -> quux;
+
+type thingy &(0...);
+
+type ship-type <aircraft-carrier battleship cruiser submarine destroyer>;
+
+type pointless-thing string -> map;
+
+type coords {
+  a : foo;
+  x?, y : 1..20;
+};
+
+type flumple [ ];
+
+type tarp [ ];
+
+type board [
+  inherit flumple;
+  inherit tarp;
+  call set-name { n : string };
+  call set-size { n : int32 };
+  call boot;
+  call shoot { at : coords }
+  => miss
+  => hit
+  => sink
+    { kind : ship-type };
+];
