@@ -1,4 +1,4 @@
-## Copyright 2021, Lancaster University
+## Copyright 2021,2022, Lancaster University
 ## All rights reserved.
 ## 
 ## Redistribution and use in source and binary forms, with or without
@@ -180,10 +180,10 @@ BUILD: prepare-version
 VERSION: prepare-version
 	@$(call MYCMPCP,tmp/VERSION,$@)
 
-YEARS=2021
+YEARS=2021,2022
 
 update-licence:
-	$(FIND) . -name '.svn' -prune -or -type f -print0 | $(XARGS) -0 \
+	$(FIND) . -name '.git' -prune -or -type f -print0 | $(XARGS) -0 \
 	$(SED) -i 's/Copyright\s\+[0-9,]\+\sLancaster University/Copyright $(YEARS), Lancaster University/g'
 
 test-syntax: $(JARDEPS_OUTDIR)/tests.jar

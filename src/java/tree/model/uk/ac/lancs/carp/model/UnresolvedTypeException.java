@@ -2,7 +2,7 @@
 
 /*
 /*
- * Copyright 2021, Lancaster University
+ * Copyright 2021,2022, Lancaster University
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
