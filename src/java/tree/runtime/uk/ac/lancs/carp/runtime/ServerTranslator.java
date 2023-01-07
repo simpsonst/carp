@@ -279,7 +279,7 @@ public class ServerTranslator {
             final Decoder codec;
 
             Object decode(JsonObject req, DecodingContext ctxt) {
-                System.err.printf("getting in %s%n", name);
+                // System.err.printf("getting in %s%n", name);
                 return codec.decodeJson(req.get(name.toString()), ctxt);
             }
 
@@ -505,7 +505,7 @@ public class ServerTranslator {
                        JsonObjectBuilder rspBuilder)
             throws IllegalAccessException,
                 InvocationTargetException {
-            System.err.printf("Incoming request: %s%n", req);
+            logger.fine(() -> String.format("Incoming request: %s%n", req));
             /* Build up the argument list. */
             Object[] params = new Object[this.params.size()];
             for (int i = 0; i < params.length; i++) {

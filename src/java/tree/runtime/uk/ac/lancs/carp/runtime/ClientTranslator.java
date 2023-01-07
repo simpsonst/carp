@@ -558,7 +558,8 @@ public class ClientTranslator {
                     HttpEntity reqent = EntityBuilder.create()
                         .setContentType(ContentType.APPLICATION_JSON)
                         .setText(out.toString()).build();
-                    System.err.printf("Request: %s%n", out.toString());
+                    logger.fine(() -> String.format("Request: %s%n",
+                                                    out.toString()));
 
                     /* Create the request. */
                     HttpPost treq = new HttpPost(base);
@@ -567,8 +568,9 @@ public class ClientTranslator {
                     /* Call the server. */
                     try (CloseableHttpClient client = clientFactory.get();
                          CloseableHttpResponse trsp = client.execute(treq)) {
-                        System.err.printf("Response code: %d%n",
-                                          trsp.getStatusLine().getStatusCode());
+                        logger.fine(() -> String
+                            .format("Response code: %d%n",
+                                    trsp.getStatusLine().getStatusCode()));
 
                         /* Check for responses that don't imply a JSON
                          * response. */
@@ -628,7 +630,7 @@ public class ClientTranslator {
                         throw new TransportException(base.toString(), ex);
                     }
                 }
-                System.err.printf("Rsp: %s%n", rsp);
+                logger.fine(() -> String.format("Rsp: %s%n", rsp));
 
                 /* Record the fingerprints of host:port tuples. Don't
                  * accept them yet. */
